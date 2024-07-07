@@ -91,12 +91,12 @@ Your task is to implement a KNN classifier. You must implement `euclidean_distan
 
 **Inputs** - `euclidean_distance()`:
 
-- `x1` and `x2` are both data points represented as NumPy arrays.
+- `x1` and `x2` are both single data points represented as NumPy arrays. For example, `x1 = [1, 1, 0]` and `x2 = [3, 3, 4]`.
 
 **Inputs** - `fit()`:
 
-- `X` is a NumPy NDArray (matrix) of data points such as `[[1, 1, 0], [0, 0.5, 3], [0.7, 0.9, 0.3]]`, representing the training data.
-- `y` is a NumPy NDArray (vector) of labels such as `["Yes", "No", "Yes"]`, representing the classification of the training data.
+- `X` is a NumPy NDArray (matrix) of data points such as `[[1, 1, 0], [0, 0.5, 3], [0.7, 0.9, 0.3]]`, representing the training data (e.g., a set of coordinates [age, salary] for numerous users).
+- `y` is a NumPy NDArray (vector) of labels such as `["Yes", "No", "Yes"]`, representing the labels/classification of the training data (e.g., whether each corresponding user is interested or not interested in a car).
 
 **Inputs** - `_predict()`:
 
