@@ -250,12 +250,23 @@ Notice that to account for \\(b\\), our feature matrix just has a row of ones. I
 
 ## Exercises
 
-FILL HERE
+Your task is to implement a Linear Regression model. You must implement `fit()` which adjusts the weights and bias of your model to some training data and `predict()` which returns the predicted values of of an array of data points.
+
+**Inputs** - `fit()`:
+
+- `X` is a NumPy NDArray (matrix) of data points such as `[[1, 1, 0], [0, 0.5, 3], [0.7, 0.9, 0.3]]`, representing the training data (e.g., a set of coordinates [Social Media, TV, Billboards] for numerous companies).
+- `y` is a NumPy NDArray (vector) of values such as `[2, 3, 6]`, representing the corresponding values for each data point along an output axis (e.g., the sale revenue for each company).
+
+**Inputs** - `predict()`:
+
+- `X` is a NumPy NDArray (matrix) of data points such as `[[1, 1, 0], [0, 0.5, 3], [0.7, 0.9, 0.3]]`, representing a set of points we want to predict a continuous value for (e.g., a list of various company's advertising expenditure which we want to predict sales from)
+
+**Note**: You would almost never calculate the gradient yourself in a production environment, but it's good to do it here just for understanding. When coding it up, you should be able to do it in just 1 line. Look at the final expression for \\( \mathcal{L} \\) for hints.
 
 ## Extra Reading: Deterministic Linear Regressions
 
+- Normal equation method
 - Pseudoinverse
-- Normals
 
 ## Extra Reading: Exploding and Vanishing Gradients
 
