@@ -265,9 +265,14 @@ Your task is to implement a Linear Regression model. You must implement `fit()` 
 
 ## Extra Reading: Deterministic Linear Regressions
 
-- Normal equation method
-- Pseudoinverse
+If you have ever taken a statistics or linear algebra class, you probably would have seen a very different way to perform a linear regression that didn't involve any gradient descent. Instead, it was probably one of the many [deterministic algorithms](https://eigen.tuxfamily.org/dox/group__LeastSquares.html) for solving the least squares problem.
 
-## Extra Reading: Exploding and Vanishing Gradients
+Remember that we're using gradient descent to try to find the right set of weights, \\(w_1, ..., w_n\\) and bias \\(b\\), such that that mean squared error \\(\mathcal{L}\\) is minimised. But is there a way we can find an exact solution for our weights and bias such that our loss is **always** minimised? The answer is yes! You can see a derivation [here](https://web.stanford.edu/~mrosenfe/soc_meth_proj3/matrix_OLS_NYU_notes.pdf), but in short the optimal weights can be expressed as \\(W = (X^T X)^{-1} X^T y\\). If \\(X\\) is of full rank (independent data points >= features), then this means the optimal solution is unique. Otherwise, there exist many solutions, but we can use the pseudoinverse of \\(X\\) to find just one. There are other alternatives, but generally when you do a linear regression with Excel or some other statistical software, they are performing one of these algorithms.
 
-Fill Here
+So why should we use gradient descent? Well, for starters, the deterministic algorithms are **slow**. In most cases, a deterministic algorithm will take \\(O(n^3)\\) complexity, where \\(n\\) is the number of data points, mostly due to matrix inversion, calculating an SVD, or some other large matrix operation. In contrast, linear regression with gradient descent can take \\(O(k n^2)\\) complexity, where \\(k\\) is the number of iterations. When \\(n\\) is low (\\(n < 10,000\\)), the analytical solution might be better, but when Coles and Woolworths are frequently dealing with datasets of over 2 billion rows, it simply it isn't even a consideration. The analytical solutions can also prove more **numerically unstable**, meaning that errors which occur during the execution of the algorithm (like floating point rounding errors) can accumulate and significantly affect the result.
+
+## Extra Reading: Feature Scaling, Weight Initialisation, & Learning Rate
+
+If you tried running your model on another toy dataset, you might have gotten a lot of `NaN` errors or your model simply took many more iterations to optimise. What you were most likely seeing was a smaller version of the vanishing/exploding gradients problem. Essentially, if your data deals with large values, the gradients are large, and your learning rate is high, you can end up taking such big steps that your predictions become increasingly worse/larger until they cannot be stored in even a 128 bit number. Alternatively, if your data deals with very small values, and your gradients are small (<1), then your step sizes will be accumulatively smaller and your weights will change very slowly.
+
+To combat this, it's important to feature scale your data much like for KNN, and tune your learning rate with experimentation. It's also important that your weights are initialised with the right values (generally randomly between 0 and 1 is good).
