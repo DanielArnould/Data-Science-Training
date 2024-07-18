@@ -4,7 +4,7 @@
 
 - [K-Nearest Neighbours](./machine-learning/knn.md)
 - [Linear Regression](./machine-learning/linear_regression.md)
-- [Logistic Regression](home.md)
+- [Logistic Regression](./machine-learning/logistic_regression.md.md)
 - [Naive Bayes Classifier](home.md)
 - [Perceptron](home.md)
 - [Support Vector Machine](home.md)
