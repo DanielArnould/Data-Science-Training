@@ -25,7 +25,7 @@ S: \mathbb{R }\to (0, 1), S(x) = \frac{1}{1 + e^{-x}}
 \\]
 
 \\[
-S(x) = \frac{1}{1 + e^{-w_1\text{Hours Studied} + w_2\text{Forum Engagement} + w_3\text{Hours Doomscrolling} + b}}
+S(x) = \frac{1}{1 + e^{-(w_1\text{Hours Studied} + w_2\text{Forum Engagement} + w_3\text{Hours Doomscrolling} + b)}}
 \\]
 
 This maps any real value into a value between 0 and 1 and is what we often use in machine learning to map predictions to probabilities. It is an example of a [logistic function](https://www.wikiwand.com/en/Logistic_function). In machine learning, the raw inputs into this function are often called **logits**, but note that this is completely different from the [mathematical definition](https://stackoverflow.com/questions/41455101/what-is-the-meaning-of-the-word-logits-in-tensorflow) 😖.
@@ -48,31 +48,31 @@ Unfortunately, we shouldn't use the same loss function (Mean Squared Error) as w
 
 Instead, we'll use [Binary Cross-Entropy](https://pytorch.org/docs/stable/generated/torch.nn.BCELoss.html) loss, also known as negative log loss.
 
-$
+\\[
 \mathcal{L} = \frac{-1}{N} \sum_{i=1}^{n}y_i\ln{(\hat{y_i})} + (1-y_i)\ln{(1-\hat{y_i})}
-$
+\\]
 
-It might look a little confusing, but it's actually a very intuitive cost function. We can break it up into 2 cases, when our actual label ($y_i$) is 1 and when it's 0.
+It might look a little confusing, but it's actually a very intuitive cost function. We can break it up into 2 cases, when our actual label (\\(y_i\\)) is 1 and when it's 0.
 
-$
+\\[
 \mathcal{L} = \ln{(\hat{y_i})} \hspace{2.6cm} \text{if y = 1}
-$
+\\]
 
-$
+\\[
 \mathcal{L} = \ln{(1 - \hat{y_i})} \hspace{2cm} \text{if y = 0}
-$
+\\]
 
 ![BCE Loss](imgs/bce_loss.png)
 
 As you can see, our loss function is minimal when the prediction is correct, and it heavily penalises incorrect predictions.
 
-Multiplying by $y$ and $(1-y)$ in the general equation is just a neat way of combining the two functions into one equation, and just like MSE loss we take the average loss for all data points in our training dataset.
+Multiplying by \\(y\\) and \\((1-y)\\) in the general equation is just a neat way of combining the two functions into one equation, and just like MSE loss we take the average loss for all data points in our training dataset.
 
 ## Gradient Descent
 
 One of the really neat things about Binary Cross-Entropy loss is that the expression for its gradients with respect to the weights and bias are quite simple. I won't cover them here since they're a bit involved, but [Nielson](http://neuralnetworksanddeeplearning.com/chap3.html) covers them and so does this [stackexchange](https://math.stackexchange.com/questions/2503428/derivative-of-binary-cross-entropy-why-are-my-signs-not-right) (_note:_ the author does not take the mean of the loss here like we do).
 
-$
+\\[
 \mathcal{L}' (w, b) = \begin{bmatrix}
 \frac{\partial \mathcal{L}}{\partial w} \newline
 \frac{\partial \mathcal{L}}{\partial b}
@@ -80,7 +80,7 @@ $
 \frac{1}{N} \sum_{i=1}^{n} x_i(\hat{y_i} - y_i) \newline
 \frac{1}{N} \sum_{i=1}^{n} (\hat{y_i} - y_i)
 \end{bmatrix}
-$
+\\]
 
 ## Exercises
 
