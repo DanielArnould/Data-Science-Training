@@ -10,14 +10,14 @@ Clearly, if some words appear more than others, it is more likely that the messa
 
 ## What is a Naive Bayes Classifier?
 
-The idea behind Naives Bayes Classifiers is actually quite simple. Let's say we had \\(K\\) classes and \\(n\\) features, then if we assigned probabilities \\(p(C_k | x_1, ..., x_n)\\) to each class \\(C_k\\) given we have some feature vector \\(\bold{x} = (x_1, ..., x_n)\\), then the model's best prediction would just be the class with the highest probablitiy.
+The idea behind Naives Bayes Classifiers is actually quite simple. Let's say we had \\(K\\) classes and \\(n\\) features, then if we assigned probabilities \\(p(C_k | x_1, ..., x_n)\\) to each class \\(C_k\\) given we have some feature vector \\(\textbf{x} = (x_1, ..., x_n)\\), then the model's best prediction would just be the class with the highest probablitiy.
 
-For example, let's say we got a text with 4 occurences of the word "food", 2 occurences of the word "girly", 6 occurences of the word "love", and 0 occurrences of the word "money". We could represent that text as a vector \\(\bold{x} = (4, 2, 6, 0)\\). Now, let's say that \\(p(\text{Spam Message} | \bold{x}) = 0.19\\) and \\(p(\text{Non-spam Message} | \bold{x}) = 0.6\\), then we would confidently say that the message is not spam.
+For example, let's say we got a text with 4 occurences of the word "food", 2 occurences of the word "girly", 6 occurences of the word "love", and 0 occurrences of the word "money". We could represent that text as a vector \\(\textbf{x} = (4, 2, 6, 0)\\). Now, let's say that \\(p(\text{Spam Message} | \textbf{x}) = 0.19\\) and \\(p(\text{Non-spam Message} | \textbf{x}) = 0.6\\), then we would confidently say that the message is not spam.
 
-The problem is how do we work out \\(p(C_k | \bold{x})\\)? Fortunately, [Bayes' Theorem](https://www.wikiwand.com/en/Bayes'_theorem) comes to the rescue, because it tells us the conditional probabilitiy can be expressed as
+The problem is how do we work out \\(p(C_k | \textbf{x})\\)? Fortunately, [Bayes' Theorem](https://www.wikiwand.com/en/Bayes'_theorem) comes to the rescue, because it tells us the conditional probabilitiy can be expressed as
 
 \\[
-p(C_k | \bold{x}) = \frac{p(C_k) p(\bold{x} | C_k)}{p(\bold{x})}
+p(C_k | \textbf{x}) = \frac{p(C_k) p(\textbf{x} | C_k)}{p(\textbf{x})}
 \\]
 
 Often in Bayesian probability, the above equation will also be phrased as follows
@@ -26,21 +26,21 @@ Often in Bayesian probability, the above equation will also be phrased as follow
 \text{posterior} = \frac{\text{prior} \times \text{likelihood}}{\text{evidence}}
 \\]
 
-We notice that for all \\(C_k\\), the denominator \\(p(\bold{x})\\) doesn't change, so it's effectively a constant. Since we don't really care about the actual probability values but rather the predictions, we can just get rid of it for now to simplify our equations.
+We notice that for all \\(C_k\\), the denominator \\(p(\textbf{x})\\) doesn't change, so it's effectively a constant. Since we don't really care about the actual probability values but rather the predictions, we can just get rid of it for now to simplify our equations.
 
 \\[
-p(C_k | \bold{x}) \propto p(C_k) p(\bold{x} | C_k)
+p(C_k | \textbf{x}) \propto p(C_k) p(\textbf{x} | C_k)
 \\]
 
 > \\(\propto\\) is the "proportional to" symbol, since strictly speaking the terms aren't equal
 
-Now, by using the [chain rule](https://www.youtube.com/watch?v=v8Uw1TFl2WQ) repeatedly and by assuming that each of the features of \\(\bold{x}\\) are independent (see [here](https://www.youtube.com/watch?v=dNhdefN36E4) for details), we can get the following expression
+Now, by using the [chain rule](https://www.youtube.com/watch?v=v8Uw1TFl2WQ) repeatedly and by assuming that each of the features of \\(\textbf{x}\\) are independent (see [here](https://www.youtube.com/watch?v=dNhdefN36E4) for details), we can get the following expression
 
 \\[
-p(C_k | \bold{x}) \propto p(C_k)\prod_{i=1}^{n}p(x_i|C_k)
+p(C_k | \textbf{x}) \propto p(C_k)\prod_{i=1}^{n}p(x_i|C_k)
 \\]
 
-That means, with some feature vector \\(\bold{x}\\), our prediction \\(\hat{y}\\) will be
+That means, with some feature vector \\(\textbf{x}\\), our prediction \\(\hat{y}\\) will be
 
 \\[
 \hat{y} = \underset{k \in \left\{ 0, ..., K \right\}}{\text{argmax}} p(C_k)\prod_{i=1}^{n}p(x_i|C_k)
@@ -56,7 +56,7 @@ Sometimes, however, some probabilities will be so small that the actual numbers 
 
 There are many different types of Naive Bayes Classifiers depending on what sort of probability distributions the feature variables are sampled from.
 
-- **Bernoulli Naive Bayes**: This is used with vectors with Boolean variables, such as \\(\bold{x} = (1, 1, 0, 0, 1)\\).
+- **Bernoulli Naive Bayes**: This is used with vectors with Boolean variables, such as \\(\textbf{x} = (1, 1, 0, 0, 1)\\).
 - **Multinomial Naive Bayes**: This is used with features from multinomial distributions. This is especially useful for non-negative discrete data, such as frequency counts. The above examples of counting words in a text message are a good example of this. Here, if the probability of seeing the word in a text message given a certain class is \\(p_k\\), the likelihood of it appearing \\(c\\) times would be \\(p_k^c\\).
 - **Gaussian Naive Bayes**: This is used with Gaussian/normal distributions. Typically when our feature variables are continuous, we assume that they're sampled from a gaussian distribution, and we thus calculate the likelihood \\(p(x_i | C_k)\\) as follows
 
@@ -104,4 +104,4 @@ Your task is to implement a Gaussian Naive Bayes Classifier. You must implement 
 
 ## Extra Reading: Why is it called naive?
 
-TODO!
+⚠️ In Progress ⚠️

@@ -21,7 +21,7 @@ A softmax regression is a generalisation of the [logistic regression](logistic_r
 Firstly, because we're calculating the probability of multiple classes, we now need to provide logits for each class. So, for each data point we pass into the linear part of our model, we should return a vector like this, with a row for each class.
 
 \\[
-\bold{z} = \begin{bmatrix}
+\textbf{z} = \begin{bmatrix}
 1.3 \newline
 5.1 \newline
 2.2 \newline
@@ -35,18 +35,18 @@ This means that our weights matrix, $W$, needs to be extended. So instead of jus
 Additionally, to convert these logits to probabilities we also generalise the sigmoid function to the [softmax function](https://www.wikiwand.com/en/Softmax_function).
 
 \\[
-\sigma(\bold{z})_i = \frac{e^{z_i}}{\sum_{j=1}^{K}e^{z_j}}
+\sigma(\textbf{z})_i = \frac{e^{z_i}}{\sum_{j=1}^{K}e^{z_j}}
 \\]
 
 > - \\(\sigma_i\\) = value for the $ith$ row of the softmax output vector
-> - \\(\bold{z}\\) = input vector
+> - \\(\textbf{z}\\) = input vector
 > - \\(e^{z_i}\\) = exponential for the $ith$ row of the input vector
 > - \\(e^{z_j}\\) = exponential for the $jth$ row of the input vector. We sum these up for each row of the input vector.
 
 Passing the above logits into this thus gives us a vector with the probability that the data point belongs to each class.
 
 \\[
-\sigma(\bold{z}) = \begin{bmatrix}
+\sigma(\textbf{z}) = \begin{bmatrix}
 0.02 \newline
 0.90 \newline
 0.05 \newline
@@ -55,7 +55,7 @@ Passing the above logits into this thus gives us a vector with the probability t
 \end{bmatrix}
 \\]
 
-Since all of these terms add up to 1, instead of having a decision boundary, we predict which class a data point belongs to by picking the row with the highest value. So in this case, \\(\bold{z}\\) belongs to class 1 (row 2), which has a probability of 0.90. This operation is what's often called taking the \\(\text{argmax}\\) of \\(\bold{z}\\).
+Since all of these terms add up to 1, instead of having a decision boundary, we predict which class a data point belongs to by picking the row with the highest value. So in this case, \\(\textbf{z}\\) belongs to class 1 (row 2), which has a probability of 0.90. This operation is what's often called taking the \\(\text{argmax}\\) of \\(\textbf{z}\\).
 
 A very nice summary of all this by [Sophia Yang](https://towardsdatascience.com/multiclass-logistic-regression-from-scratch-9cc0007da372) is included below:
 
@@ -63,10 +63,10 @@ A very nice summary of all this by [Sophia Yang](https://towardsdatascience.com/
 
 ## Loss Function & Training
 
-Likewise, we need to adjust the way we train our model. Firstly, because we're dealing with multiple classes, most datasets will just simply add the extra classes to their target vector, \\(\bold{y}\\).
+Likewise, we need to adjust the way we train our model. Firstly, because we're dealing with multiple classes, most datasets will just simply add the extra classes to their target vector, \\(\textbf{y}\\).
 
 \\[
-\bold{y} =
+\textbf{y} =
 \underset{\text{N targets for N data points}}{\underbrace{\begin{bmatrix}
 \vdots \newline
 0 \newline
