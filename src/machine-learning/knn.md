@@ -4,38 +4,13 @@
 
 Congrats! You just manufactured your very own car, the _WMB X5_ 😱👑. You think it's a pretty fancy car, so you'd like to try to sell it by sending ads to people who might be interested in buying a new vehicle. Fortunately, your friend _Zark Muckerberg_ runs a social network and collects a lot of data on his users. He runs a small survey to see who'd be interested in buying a new car and sends you the results.
 
-| User ID   | Gender            | Age | Salary | Interested |
-| --------- | ----------------- | --- | ------ | ---------- |
-| 6939211   | Male              | 25  | 83250  | No         |
-| 9177299   | Male              | 37  | 76234  | No         |
-| 9323247   | Female            | 70  | 93668  | Yes        |
-| 9207727   | Male              | 32  | 80401  | No         |
-| 2387010   | Prefer not to say | 61  | 96084  | Yes        |
-| 2316002   | Male              | 29  | 80934  | No         |
-| 5280565   | Female            | 59  | 100495 | Yes        |
-| 3437477   | Female            | 76  | 98638  | Yes        |
-| 5568749   | Male              | 77  | 95824  | Yes        |
-| 2877021   | Female            | 74  | 102237 | Yes        |
-| 8998277   | Prefer not to say | 21  | 76506  | No         |
-| 715587    | Male              | 59  | 92789  | Yes        |
-| 5838985   | Male              | 64  | 95842  | Yes        |
-| 3274238   | Male              | 71  | 97327  | Yes        |
-| 5864724   | Prefer not to say | 66  | 99121  | Yes        |
-| 6736538   | Prefer not to say | 22  | 73697  | No         |
-| 1253094   | Female            | 60  | 105703 | Yes        |
-| 5730132   | Prefer not to say | 34  | 85502  | No         |
-| 2884392   | Female            | 21  | 89391  | No         |
-| 8263912   | Prefer not to say | 37  | 88789  | No         |
-| 7886254   | Female            | 67  | 93993  | Yes        |
-| 4519499   | Male              | 21  | 87896  | No         |
-| 8418522   | Male              | 58  | 100284 | Yes        |
-| 1861036   | Male              | 76  | 101848 | Yes        |
-| 2446987   | Prefer not to say | 18  | 88437  | No         |
-| 9300908   | Female            | 63  | 90929  | Yes        |
-| 6569608   | Prefer not to say | 19  | 81957  | No         |
-| 7866791   | Prefer not to say | 35  | 71769  | No         |
-| 421312312 | Female            | 30  | 73919  | No         |
-| 451242142 | Female            | 32  | 70904  | No         |
+| User ID | Gender | Age | Salary | Interested |
+| ------- | ------ | --- | ------ | ---------- |
+| 6939211 | Male   | 25  | 83250  | No         |
+| 9177299 | Male   | 37  | 76234  | No         |
+| 9323247 | Female | 70  | 93668  | Yes        |
+...
+| 451242142 | Female | 32 | 70904 | No |
 
 For each user on the social network, you can now decide whether to send an ad to them. What you effectively want then is a model that can use the data your friend gave you to take some unseen user data like
 

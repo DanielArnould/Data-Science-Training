@@ -12,7 +12,7 @@ The Academic Performance Team at your local university is trying to develop the 
 | Colin    | 9.4           | 0.3              | 3.1                 | P         |
 | Bella    | 2.2           | 0.1              | 14.3                | F         |
 
-Now, you already know [K-Nearest Neighbours](./machine-learning/knn.md) is a classification algorithm you could try using. However, there's likely some linear relationships in the data here (e.g., more hours studied = higher grade; more hours doomscrolling = lower grade). So, could we combine some of the techniques we learned for [linear regression](./machine-learning/linear_regression.md) to create a pass/fail predictor?
+Now, you already know [K-Nearest Neighbours](knn.md) is a classification algorithm you could try using. However, there's likely some linear relationships in the data here (e.g., more hours studied = higher grade; more hours doomscrolling = lower grade). So, could we combine some of the techniques we learned for [linear regression](linear_regression.md) to create a pass/fail predictor?
 
 ## What is a Logistic Regression
 
@@ -82,7 +82,7 @@ One of the really neat things about Binary Cross-Entropy loss is that the expres
 \end{bmatrix}
 \\]
 
-## Exercises
+## Exercise
 
 Your task is to implement a Logistic Regression model. You must implement `_sigmoid()` which applies the sigmoid function piecewise to a vector, `fit()` which adjusts the weights and bias of your model to some training data, `predict()` which returns the predicted values of of an array of data points.
 
