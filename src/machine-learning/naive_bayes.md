@@ -43,13 +43,13 @@ p(C_k | \textbf{x}) \propto p(C_k)\prod_{i=1}^{n}p(x_i|C_k)
 That means, with some feature vector \\(\textbf{x}\\), our prediction \\(\hat{y}\\) will be
 
 \\[
-\hat{y} = \underset{k \in \left\{ 0, ..., K \right\}}{\text{argmax}} p(C_k)\prod_{i=1}^{n}p(x_i|C_k)
+\hat{y} = \underset{k \in \\{0, ..., K\\}}{\text{argmax}} p(C_k)\prod_{i=1}^{n}p(x_i|C_k)
 \\]
 
 Sometimes, however, some probabilities will be so small that the actual numbers risk underflowing on a computer, causing weird undefined behaviour. For that reason, some models will just take the log probability of everything.
 
 \\[
-\hat{y} = \underset{k \in \left\{ 0, ..., K \right\}}{\text{argmax}} \log{(p(C_k))} + \sum_{i=1}^{n} \log{(p(x_i|C_k))}
+\hat{y} = \underset{k \in \\{ 0, ..., K \\}}{\text{argmax}} \log{(p(C_k))} + \sum_{i=1}^{n} \log{(p(x_i|C_k))}
 \\]
 
 ## Types of Naive Bayes Classifier
@@ -102,6 +102,14 @@ Your task is to implement a Gaussian Naive Bayes Classifier. You must implement 
 
 - `x` is a NumPy NDArray (vector) representing a feature vector with continuous values which you should predict the class of from the training data. For example, `[1.2, 1.1, 6.3]`.
 
-## Extra Reading: Why is it called naive?
+## Extra Reading: What it is so naive?
 
-⚠️ In Progress ⚠️
+Remember that at the basic level, a Naive Bayes Classifier wants to find the \\(p(C_k | \textbf{X})\\) with the greatest value. To calculate this, it needs to calculate \\(p(\textbf{x} | C_k)\\). However, because this value is generally hard to calculate, we make a big assumption that the features of \\(\textbf{x}\\) are independent, so we can end up with the formula \\(p(\textbf{x} | C_k) = p(x_1 | C_k) \times p(x_2 | C_k) \times p(x_3 | C_k) \times \dots\\). It's this assumption that we call naive, because it may or may not turn out to be correct.
+
+There is actually a fantastic intuitive explanation of this on [Wikipedia](https://www.wikiwand.com/en/Naive_Bayes_classifier#Discussion)
+
+> All naive Bayes classifiers assume that the value of a particular feature is independent of the value of any other feature, given the class variable. For example, a fruit may be considered to be an apple if it is red, round, and about 10 cm in diameter. A naive Bayes classifier considers each of these features to contribute independently to the probability that this fruit is an apple, regardless of any possible correlations between the color, roundness, and diameter features.
+
+Of course, very often this assumption is incorrect, but even in those cases, Naive Bayes Classifiers can still perform remarkably well. In fact, they can even outperform models that don't make such an assumption because they can avoid some of the pitfalls of the [curse of dimensionality](https://towardsdatascience.com/curse-of-dimensionality-a-curse-to-machine-learning-c122ee33bfeb). For example, if two features are dependent, such as hair length and gender, then assuming independence lets you double count the evidence, which is especially helpful when you're dealing with many, many features.
+
+A more mathematical explanation for Naive Bayes effectiveness can be found in [research](https://aaai.org/papers/flairs-2004-097/), but the explanations get quite a bit more involved.
