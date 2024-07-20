@@ -35,7 +35,7 @@ This means that our weights matrix, $W$, needs to be extended. So instead of jus
 Additionally, to convert these logits to probabilities we also generalise the sigmoid function to the [softmax function](https://www.wikiwand.com/en/Softmax_function).
 
 \\[
-\sigma(\textbf{z})_i = \frac{e^{z_i}}{\sum_{j=1}^{K}e^{z_j}}
+\sigma(\textbf{z})\_i = \frac{e^{z_i}}{\sum_{j=1}^{K}e^{z_j}}
 \\]
 
 > - \\(\sigma_i\\) = value for the $ith$ row of the softmax output vector
