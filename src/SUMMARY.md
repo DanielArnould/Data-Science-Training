@@ -9,7 +9,7 @@
   - [Logistic Regression](./machine-learning/logistic_regression.md)
   - [Softmax Regression](./machine-learning/softmax_regression.md)
   - [Naive Bayes Classifier](./machine-learning/naive_bayes.md)
-  - [Perceptron](home.md)
+  - [Perceptron](./machine-learning/perceptron.md)
   - [Support Vector Machine](home.md)
   - [Decision Tree Classifier](home.md)
   - [Random Forest Classifier](home.md)
