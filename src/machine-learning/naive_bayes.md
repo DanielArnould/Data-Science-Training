@@ -102,7 +102,7 @@ Your task is to implement a Gaussian Naive Bayes Classifier. You must implement 
 
 - `x` is a NumPy NDArray (vector) representing a feature vector with continuous values which you should predict the class of from the training data. For example, `[1.2, 1.1, 6.3]`.
 
-## Extra Reading: What it is so naive?
+## Extra Reading: What is so naive?
 
 Remember that at the basic level, a Naive Bayes Classifier wants to find the \\(p(C_k | \textbf{X})\\) with the greatest value. To calculate this, it needs to calculate \\(p(\textbf{x} | C_k)\\). However, because this value is generally hard to calculate, we make a big assumption that the features of \\(\textbf{x}\\) are independent, so we can end up with the formula \\(p(\textbf{x} | C_k) = p(x_1 | C_k) \times p(x_2 | C_k) \times p(x_3 | C_k) \times \dots\\). It's this assumption that we call naive, because it may or may not turn out to be correct.
 

@@ -10,7 +10,7 @@
   - [Softmax Regression](./machine-learning/softmax_regression.md)
   - [Perceptron](./machine-learning/perceptron.md)
   - [Naive Bayes Classifier](./machine-learning/naive_bayes.md)
-  - [Support Vector Machine](home.md)
+  - [Support Vector Machine](./machine-learning/svm.md)
   - [Decision Tree Classifier](home.md)
   - [Random Forest Classifier](home.md)
   - [K-Means Clustering](home.md)
