@@ -11,14 +11,14 @@
   - [Perceptron](./machine-learning/perceptron.md)
   - [Naive Bayes Classifier](./machine-learning/naive_bayes.md)
   - [Support Vector Machine](./machine-learning/svm.md)
-  - [Decision Tree Classifier](home.md)
-  - [Random Forest Classifier](home.md)
+  <!-- - [Decision Tree Classifier](home.md)
+  - [Random Forest Classifier](home.md) -->
   - [K-Means Clustering](home.md)
-  - [AdaBoost](home.md)
+  <!-- - [AdaBoost](home.md)
   - [Principal Component Analysis](home.md)
-  - [Linear Discriminant Analysis](home.md)
+  - [Linear Discriminant Analysis](home.md) -->
 
-- [Neural Networks & Deep Learning](./deep-learning/deep_learning.md)
+<!-- - [Neural Networks & Deep Learning](./deep-learning/deep_learning.md)
 
   - [Tensor Manipulation](home.md)
   - [Autograd & Computational Graphs](home.md)
@@ -41,4 +41,4 @@
   - [Visualising Data](home.md)
   - [Tensorboard](home.md)
   - [Saving & Loading Models](home.md)
-  - [Model Deployment](home.md)
+  - [Model Deployment](home.md) -->
